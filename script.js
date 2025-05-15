@@ -87,6 +87,13 @@ const operationButtons = document.querySelectorAll('.operation-button')
 const operateButton = document.querySelector('#operate')
 const clearButton = document.querySelector('#C')
 const allClearButton = document.querySelector('#AC')
+const signButton = document.querySelector('#sign')
+
+signButton.addEventListener('click', event => {
+    if (!(operatorButtonActive)) {
+        display.innerText = - +display.innerText
+    }
+})
 
 clearButton.addEventListener('click', event => clearDisplay())
 allClearButton.addEventListener('click', event => {
