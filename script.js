@@ -88,6 +88,17 @@ const clearButton = document.querySelector('#C')
 const allClearButton = document.querySelector('#AC')
 const signButton = document.querySelector('#sign')
 const decimalButton = document.querySelector('#decimal')
+const backButton = document.querySelector('#back')
+
+backButton.addEventListener('click', event => {
+    let displayNumber = display.innerText
+    if (!(operatorButtonActive) && displayNumber !== '0') {
+        if (displayNumber.length === 1) display.innerText = '0'
+        else {
+            display.innerText = displayNumber.slice(0,displayNumber.length-1)
+        }
+    }
+})
 
 signButton.addEventListener('click', event => {
     if (!(operatorButtonActive)) {
