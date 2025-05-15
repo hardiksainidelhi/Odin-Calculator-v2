@@ -71,7 +71,7 @@ function setNumberAndOperator(event) {
 }
 
 function compute(event) {
-    numberB = getDisplayNumber()
+    if (!(operatorButtonActive)) numberB = getDisplayNumber()
     if (!(numberB == null || numberA == null || operation == null)) {
         const result = operate(numberA, numberB, operation)
         setDisplay(result)
