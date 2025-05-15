@@ -72,7 +72,6 @@ function setNumberAndOperator(event) {
 
 function compute(event) {
     numberB = getDisplayNumber()
-    console.log(numberB, numberA, operation)
     if (!(numberB == null || numberA == null || operation == null)) {
         const result = operate(numberA, numberB, operation)
         setDisplay(result)
@@ -88,10 +87,18 @@ const operateButton = document.querySelector('#operate')
 const clearButton = document.querySelector('#C')
 const allClearButton = document.querySelector('#AC')
 const signButton = document.querySelector('#sign')
+const decimalButton = document.querySelector('#decimal')
 
 signButton.addEventListener('click', event => {
     if (!(operatorButtonActive)) {
         display.innerText = - +display.innerText
+    }
+})
+
+decimalButton.addEventListener('click', event => {
+    if (!(operatorButtonActive)) {
+        let displayNumber = display.innerText
+        if (!(displayNumber.includes('.'))) display.innerText += '.'
     }
 })
 
