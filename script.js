@@ -27,6 +27,6 @@ function operate(numberA,numberB,operation){
         case '*':
             return multiply(numberA,numberB)
         case '/':
-            return Math.round(divide(numberA,numberB)*100)/100
+            return divide(numberA,numberB)
     }
 }
