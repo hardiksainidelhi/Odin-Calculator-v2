@@ -90,12 +90,71 @@ const signButton = document.querySelector('#sign')
 const decimalButton = document.querySelector('#decimal')
 const backButton = document.querySelector('#back')
 
+document.addEventListener('keydown', event => {
+    const key = event.key
+    event.preventDefault()
+    let button;
+    switch (key) {
+        case '1':
+            button = document.querySelector('#one')
+            break
+        case '2':
+            button = document.querySelector('#two')
+            break
+        case '3':
+            button = document.querySelector('#three')
+            break
+        case '4':
+            button = document.querySelector('#four')
+            break
+        case '5':
+            button = document.querySelector('#five')
+            break
+        case '6':
+            button = document.querySelector('#six')
+            break
+        case '7':
+            button = document.querySelector('#seven')
+            break
+        case '8':
+            button = document.querySelector('#eight')
+            break
+        case '9':
+            button = document.querySelector('#nine')
+            break
+        case '0':
+            button = document.querySelector('#zero')
+            break
+        case '.':
+            button = decimalButton
+            break
+        case 'a':
+            button = allClearButton
+            break
+        case 'c':
+            button = clearButton
+            break
+        case 'Backspace':
+            button = backButton
+            break
+        case 's':
+            button = signButton
+            break
+    }
+
+    if (button) {
+        button.click()
+    }
+
+
+})
+
 backButton.addEventListener('click', event => {
     let displayNumber = display.innerText
     if (!(operatorButtonActive) && displayNumber !== '0') {
         if (displayNumber.length === 1) display.innerText = '0'
         else {
-            display.innerText = displayNumber.slice(0,displayNumber.length-1)
+            display.innerText = displayNumber.slice(0, displayNumber.length - 1)
         }
     }
 })
@@ -130,7 +189,6 @@ operationButtons.forEach(btn => {
             if (!(operatorButtonActive)) {
                 numberB = getDisplayNumber()
                 const result = operate(numberA, numberB, operation)
-                console.log(`${numberA} ${operation} ${numberB} = ${result}`)
                 numberA = result
                 setDisplay(numberA)
                 operatorButtonActive = true
